@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+
+namespace UserRegistrationusingAnnotation
+{
+    class UserAnnotationTest
+    {
+        public static void UserRegistratiion()
+        {
+
+            User user = new User();
+
+            Console.WriteLine("\nEnter the first name");
+            user.firstName = Console.ReadLine();
+
+            ValidationContext context = new ValidationContext(user);
+            List<ValidationResult> results = new List<ValidationResult>();
+            bool valid = Validator.TryValidateObject(user, context, results, true);
+
+            if (!valid)
+            {
+                foreach (ValidationResult Totalresult in results)
+                {
+                    Console.Write("\nMember Name : {0}{1}", Totalresult.MemberNames.First(), Environment.NewLine);
+                    Console.Write("Error Message :: {0}{1}", Totalresult.ErrorMessage, Environment.NewLine);
+                }
+                Console.WriteLine("\nUser Registration Failed");
+            }
+            else
+            {
+                Console.WriteLine("First Name: " + user.firstName );
+                Console.WriteLine("User Registration successful");
+            }
+        }
+    }
+}
