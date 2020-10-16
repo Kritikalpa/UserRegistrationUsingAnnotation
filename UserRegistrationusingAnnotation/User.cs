@@ -18,5 +18,10 @@ namespace UserRegistrationusingAnnotation
         [DataType(DataType.Text)]
         [RegularExpression(@"^[A-Z][A-Za-z\s]{2,}$")]
         public string lastName { get; set; }
+
+        [Required(ErrorMessage = "Email Id is required")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.)([a-z0-9]([a-z0-9-]*[a-z])\.?)([a-z]{2})?)$")]
+        public string emailId { get; set; }
     }
 }
