@@ -23,5 +23,10 @@ namespace UserRegistrationusingAnnotation
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.)([a-z0-9]([a-z0-9-]*[a-z])\.?)([a-z]{2})?)$")]
         public string emailId { get; set; }
+
+        [Required(ErrorMessage = "Phone Number is required")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\+?[0-9]{1,3}\s[0-9]{10}$")]
+        public string phoneNumber { get; set; }
     }
 }
