@@ -13,6 +13,10 @@ namespace UserRegistrationusingAnnotation
         [RegularExpression(@"^[A-Z][A-Za-z\s]{2,}$")]
         public string firstName { get; set; }
 
-        
+        [Required(ErrorMessage = "Last Name is required")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Last Name Should be minimum 3 characters and a maximum of 20 characters")]
+        [DataType(DataType.Text)]
+        [RegularExpression(@"^[A-Z][A-Za-z\s]{2,}$")]
+        public string lastName { get; set; }
     }
 }

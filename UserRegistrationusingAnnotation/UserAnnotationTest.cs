@@ -16,6 +16,9 @@ namespace UserRegistrationusingAnnotation
             Console.WriteLine("\nEnter the first name");
             user.firstName = Console.ReadLine();
 
+            Console.WriteLine("\nEnter the last name");
+            user.lastName = Console.ReadLine();
+
             ValidationContext context = new ValidationContext(user);
             List<ValidationResult> results = new List<ValidationResult>();
             bool valid = Validator.TryValidateObject(user, context, results, true);
@@ -31,7 +34,7 @@ namespace UserRegistrationusingAnnotation
             }
             else
             {
-                Console.WriteLine("First Name: " + user.firstName );
+                Console.WriteLine("First Name: " + user.firstName + "\n" + "Last Name: " + user.lastName);
                 Console.WriteLine("User Registration successful");
             }
         }
