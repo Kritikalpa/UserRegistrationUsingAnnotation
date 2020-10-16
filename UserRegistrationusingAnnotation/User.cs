@@ -28,5 +28,10 @@ namespace UserRegistrationusingAnnotation
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\+?[0-9]{1,3}\s[0-9]{10}$")]
         public string phoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^(?=.{8,}).*$")]
+        public string password { get; set; }
     }
 }
