@@ -31,7 +31,7 @@ namespace UserRegistrationusingAnnotation
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.{8,}).*$")]
+        [RegularExpression(@"^(?=.{8,})(?=.*[A-Z]).*$")]
         public string password { get; set; }
     }
 }
